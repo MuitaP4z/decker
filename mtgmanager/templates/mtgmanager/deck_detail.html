@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ deck.nome }} ({{ deck.formato }})</h1>
+
+  <h2>Cartas no Deck:</h2>
+  <ul>
+    {% for item in cartas_no_deck %}
+      <li>
+        {{ item.quantidade }}x {{ item.carta.nome }} ({{ item.carta.tipo }})
+      </li>
+    {% empty %}
+      <p>Este deck ainda não contém cartas.</p>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'deck_list' %}">Voltar para a lista de decks</a>
+{% endblock %}
