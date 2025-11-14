@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Decker.IO</title>
+</head>
+<body>
+    <h1>Bem-vindo, {{ request.user.username }}!</h1>
+
+    <ul>
+        <li><a href="/admin/mtgmanager/carta/">Minhas Cartas</a></li>
+        <li><a href="/admin/mtgmanager/deck/">Meus Decks</a></li>
+        <li><a href="/logout/">Sair</a></li>
+    </ul>
+</body>
+</html>

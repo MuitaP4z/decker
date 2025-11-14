@@ -2,6 +2,9 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
 from .models import Deck, CartaNoDeck
 from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 class DeckDetailView(DetailView):
     model = Deck
@@ -15,4 +18,10 @@ class DeckDetailView(DetailView):
 
 
 def home(request):
-    return HttpResponse("<h1>Bem-vindo ao decker.io</h1><p>Use o menu para acessar o painel administrativo.</p>")
+    if not request.user.is_authenticated:
+        return redirect('login')
+    return redirect('dashboard')
+
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
