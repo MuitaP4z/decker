@@ -168,5 +168,10 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     }
 
+    CSRF_TRUSTED_ORIGINS = [
+    "https://decker-whqh.onrender.com",
+]
+
 }
+
 
