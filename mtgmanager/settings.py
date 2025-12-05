@@ -26,9 +26,9 @@ MEDIA_ROOT = BASE_DIR / 'assets' / 'cartas_imagens'
 SECRET_KEY = 'django-insecure-sayl+=s(x1nh=hg9vypj@kjb#d+$al&#(s#8^4_#d!-#j6kw4@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [decker-tyrp.onrender.com]
 
 
 # Application definition
