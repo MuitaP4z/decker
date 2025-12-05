@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-sayl+=s(x1nh=hg9vypj@kjb#d+$al&#(s#8^4_#d!-#j6kw4@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [decker-tyrp.onrender.com]
+ALLOWED_HOSTS = [decker-whqh.onrender.com]
 
 
 # Application definition
@@ -167,4 +167,5 @@ JAZZMIN_UI_TWEAKS = {
         "danger": "btn-danger",
         "success": "btn-success"
     }
+
 }
