@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-sayl+=s(x1nh=hg9vypj@kjb#d+$al&#(s#8^4_#d!-#j6kw4@'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     ".onrender.com",
@@ -126,4 +126,5 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     }
 }
+
 
