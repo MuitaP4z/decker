@@ -21,10 +21,8 @@ def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data["password"])  # salva hash
-            user.save()
-            return redirect('/admin/')  # após cadastro, vai para o login do admin
+            form.save()
+            return redirect('/admin/')  # ou 'login'
     else:
         form = UserRegisterForm()
 
@@ -36,3 +34,4 @@ def home(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
+
