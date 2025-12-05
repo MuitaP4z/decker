@@ -8,13 +8,13 @@ SECRET_KEY = 'django-insecure-sayl+=s(x1nh=hg9vypj@kjb#d+$al&#(s#8^4_#d!-#j6kw4@
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'decker-whqh.onrender.com',
-    'www.decker-whqh.onrender.com',
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://decker-whqh.onrender.com',
-    'https://www.decker-whqh.onrender.com',
+    "https://*.onrender.com",
 ]
 
 INSTALLED_APPS = [
@@ -126,3 +126,4 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     }
 }
+
