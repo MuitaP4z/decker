@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from .forms import UserRegisterForm
 
 class DeckDetailView(DetailView):
     model = Deck
@@ -16,11 +17,21 @@ class DeckDetailView(DetailView):
         context['cartas_no_deck'] = CartaNoDeck.objects.filter(deck=self.object).select_related('carta')
         return context
 
+def register(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data["password"])  # salva hash
+            user.save()
+            return redirect('/admin/')  # após cadastro, vai para o login do admin
+    else:
+        form = UserRegisterForm()
+
+    return render(request, "register.html", {"form": form})
 
 def home(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    return redirect('dashboard')
+    return render(request, 'home.html')
 
 @login_required
 def dashboard(request):

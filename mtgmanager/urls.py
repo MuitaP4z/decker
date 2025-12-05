@@ -15,28 +15,29 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from mtgmanager import views
-from .views import DeckDetailView 
-from .views import home
 from django.contrib.auth import views as auth_views
-
+from mtgmanager import views
+from .views import home, dashboard, DeckDetailView, register
 
 urlpatterns = [
+    # Greeter
     path('', views.home, name='home'),
+
+    # Admin
     path('admin/', admin.site.urls),
+
+    # Sistema
     path('decks/<int:pk>/', DeckDetailView.as_view(), name='deck_detail'),
-    
-    # Login e Logout
+    path('dashboard/', dashboard, name='dashboard'),
+
+    # Autenticação
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
-    # Sistema
-    path('', views.home, name='home'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-
+    path('register/', views.register, name='register'),
 ]
 
 if settings.DEBUG:

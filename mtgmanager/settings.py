@@ -130,8 +130,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Vault14 Usuário",
-    "site_header": "Vault14Manager",
+    "site_title": "decker Usuário",
+    "site_header": "decker.io",
     "welcome_sign": "Bem-vindo ao painel MTG",
     "search_model": "mtgmanager.carta",
     "show_ui_builder": True,

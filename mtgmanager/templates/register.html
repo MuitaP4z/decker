@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Decker.IO</title>
+    <title>Cadastro - Decker.IO</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +20,9 @@
             height: 100vh;
         }
 
-        .login-card {
+        .register-card {
             background: #F4F6F9;
-            width: 380px;
+            width: 420px;
             padding: 40px;
             border-radius: 14px;
             box-shadow: 0 4px 14px rgba(0,0,0,0.15);
@@ -52,9 +52,17 @@
             font-size: 15px;
         }
 
+        .errorlist {
+            color: red;
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
         button {
             width: 100%;
             padding: 12px;
+            margin-top: 5px;
             border-radius: 8px;
             font-weight: 700;
             font-size: 16px;
@@ -69,45 +77,42 @@
             background: #e0a800;
         }
 
-        .register-link {
-            margin-top: 20px;
+        .login-link {
+            margin-top: 18px;
             display: block;
             color: #343A40;
             font-weight: 600;
             text-decoration: none;
         }
 
-        .register-link:hover {
+        .login-link:hover {
             text-decoration: underline;
-        }
-
-        .errorlist {
-            color: red;
-            margin-bottom: 10px;
-            text-align: left;
-            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
-    <div class="login-card">
-        <h2>Entrar no Decker.IO</h2>
+    <div class="register-card">
+        <h2>Criar conta</h2>
 
-        <form method="post">
+        <form method="POST">
             {% csrf_token %}
+
             {{ form.non_field_errors }}
 
             <label for="id_username">Usuário</label>
             {{ form.username }}
 
+            <label for="id_email">Email</label>
+            {{ form.email }}
+
             <label for="id_password">Senha</label>
             {{ form.password }}
 
-            <button type="submit">Entrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
 
-        <a href="/register/" class="register-link">Criar uma conta</a>
+        <a href="/login/" class="login-link">Já tenho conta</a>
     </div>
 </body>
 </html>
